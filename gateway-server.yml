@@ -2,29 +2,25 @@ server:
   port: 8080
 
 spring:
-  main:
-    web-application-type: reactive
+  application:
+    name: gateway-server
   cloud:
     gateway:
-      default-filters:
-        - RemoveHopByHop
       routes:
         - id: library
           uri: lb://LIBRARY-SERVICE
-          predicates:
-            - Path=/library/**
-          filters:
-            - StripPrefix=1
+          predicates: [ Path=/library/** ]
+          filters:   [ StripPrefix=1 ]
         - id: stock
           uri: lb://STOCK-SERVICE
-          predicates:
-            - Path=/stock/**
-          filters:
-            - StripPrefix=1
+          predicates: [ Path=/stock/** ]
+          filters:   [ StripPrefix=1 ]
       discovery:
         locator:
           enabled: false
           lower-case-service-id: true
+      default-filters:
+        - RemoveHopByHop
 
 eureka:
   client:
