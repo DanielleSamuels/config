@@ -7,7 +7,7 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - RemoveHopByHop=connection,keep-alive,transfer-encoding
+        - RemoveHopByHop
       routes:
         - id: library
           uri: lb://LIBRARY-SERVICE
