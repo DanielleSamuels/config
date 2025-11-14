@@ -14,7 +14,7 @@ spring:
             scope: openid,profile,email,roles
         provider:
           keycloak:
-            issuer-uri: http://keycloak:8080/realms/comic-inventory
+            issuer-uri: http://keycloak:8085/realms/comic-inventory
 
   application:
     name: gateway-server
