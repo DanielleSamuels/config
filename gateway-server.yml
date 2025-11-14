@@ -7,8 +7,6 @@ spring:
     name: gateway-server
   cloud:
     gateway:
-      default-filters:
-        - TokenRelay
       routes:
         - id: library
           uri: lb://LIBRARY-SERVICE
